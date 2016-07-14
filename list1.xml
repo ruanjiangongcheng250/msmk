@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<item>
+   <list name="°ÎË¿Ïã½¶" videotitle="°ÎË¿Ïã½¶" link="video/bsxj.flv" >
+       <thumb>thumb/bsxj.jpg</thumb>      
+   </list>  
+   <list name="ÓãÏã¶¹¸¯" videotitle="ÓãÏã¶¹¸¯" link="video/yuxiangdoufu.flv" >
+       <thumb>thumb/yxdf.jpg</thumb>      
+   </list> 
+   <list name="º«Ê½×Ï²Ë·¹" videotitle="º«Ê½×Ï²Ë·¹" link="video/hanshizicaifan.flv" >
+       <thumb>thumb/hszc.jpg</thumb>      
+   </list>  
+   <list name="ÃÀÎ¶º£ÏÊ·¹" videotitle="ÃÀÎ¶º£ÏÊ·¹" link="video/hxf.flv" >
+       <thumb>thumb/hxf.jpg</thumb>      
+   </list>
+   <list name="ÓãÏãÈâË¿" videotitle="ÓãÏãÈâË¿" link="video/yxrs.flv" >
+       <thumb>thumb/yxrs.jpg</thumb>      
+   </list>  
+   <list name="¸É¹øÇ§Ò³¶¹¸¯" videotitle="¸É¹øÇ§Ò³¶¹¸¯" link="video/qydf.mp4" >
+       <thumb>thumb/qydf.jpg</thumb>      
+   </list>
+   <list name="Ë®ÖóÅ£Èâ" videotitle="Ë®ÖóÅ£Èâ" link="video/shuizhuniurou.flv" >
+       <thumb>thumb/sznr.jpg</thumb>      
+   </list>  
+   <list name="²èÍëÕôµ°" videotitle="Final matrix demo 2" link="video/chawazhengdan.flv" >
+       <thumb>thumb/cwzd.jpg</thumb>      
+   </list>
+   
+   
+</item>

@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>美食美客-让烹饪变简单</title>
+<script type="text/javascript" src="js/js1.js"></script>
+<script type="text/javascript" src="js/js_changeimg.js"></script>
+<link rel="stylesheet" href="css/index_style111.css" type="text/css" />
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<style>
+body,ul,li{ padding:0; margin:0;}
+ul,li{ list-style:none;}
+img{ border:none;}
+a{ color:#6cf;}
+a:hover{ color:#84B263;}
+.box{ width:980px; margin:10px auto; position:relative; overflow:hidden; _height:100%;}
+.picbox{ width:980px; height:240px; overflow:hidden; position:relative;}
+.piclist{ height:115px;position:absolute; left:0px; top:0px}
+.piclist li{ background:#eee; margin-right:20px; padding:5px; float:left;}
+.swaplist{ position:absolute; left:-3000px; top:0px}
+.og_prev{ width:30px; height:50px; background:url(images/xiaoyu.jpg) no-repeat; position:absolute; top:90px; z-index:99; cursor:pointer;filter:alpha(opacity=70); opacity:0.7;}
+.og_next{ width:30px; height:50px; background:url(images/dayu.jpg) no-repeat; position:absolute; top:90px; z-index:99; cursor:pointer;filter:alpha(opacity=70); opacity:0.7;}
+.og_prev{ background-position:0 0px; left:4px;}
+.og_next{ background-position:0 0; right:-9px;}
+</style>
+<script type="text/javascript" src="jquery-1.6.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+	/***不需要自动滚动，去掉即可***/
+	time = window.setInterval(function(){
+		$('.og_next').click();
+	},5000);
+	/***不需要自动滚动，去掉即可***/
+	linum = $('.mainlist li').length;//图片数量
+	w = linum * 250;//ul宽度
+	$('.piclist').css('width', w + 'px');//ul宽度
+	$('.swaplist').html($('.mainlist').html());//复制内容
+	$('.og_next').click(function(){
+		if($('.swaplist,.mainlist').is(':animated')){
+			$('.swaplist,.mainlist').stop(true,true);
+		}
+		if($('.mainlist li').length>4){//多于4张图片
+			ml = parseInt($('.mainlist').css('left'));//默认图片ul位置
+			sl = parseInt($('.swaplist').css('left'));//交换图片ul位置
+			if(ml<=0 && ml>w*-1){//默认图片显示时
+				$('.swaplist').css({left: '1000px'});//交换图片放在显示区域右侧
+				$('.mainlist').animate({left: ml - 1000 + 'px'},'slow');//默认图片滚动
+				if(ml==(w-1000)*-1){//默认图片最后一屏时
+					$('.swaplist').animate({left: '0px'},'slow');//交换图片滚动
+				}
+			}else{//交换图片显示时
+				$('.mainlist').css({left: '1000px'})//默认图片放在显示区域右
+				$('.swaplist').animate({left: sl - 1000 + 'px'},'slow');//交换图片滚动
+				if(sl==(w-1000)*-1){//交换图片最后一屏时
+					$('.mainlist').animate({left: '0px'},'slow');//默认图片滚动
+				}
+			}
+		}
+	})
+	$('.og_prev').click(function(){
+
+		if($('.swaplist,.mainlist').is(':animated')){
+			$('.swaplist,.mainlist').stop(true,true);
+		}
+		if($('.mainlist li').length>4){
+			ml = parseInt($('.mainlist').css('left'));
+			sl = parseInt($('.swaplist').css('left'));
+			if(ml<=0 && ml>w*-1){
+				$('.swaplist').css({left: w * -1 + 'px'});
+				$('.mainlist').animate({left: ml + 1000 + 'px'},'slow');
+				if(ml==0){
+					$('.swaplist').animate({left: (w - 1000) * -1 + 'px'},'slow');
+				}
+			}else{
+				$('.mainlist').css({left: (w - 1000) * -1 + 'px'});
+				$('.swaplist').animate({left: sl + 1000 + 'px'},'slow');
+				if(sl==0){
+					$('.mainlist').animate({left: '0px'},'slow');
+				}
+			}
+		}
+	})
+});
+$(document).ready(function(){
+	$('.og_prev,.og_next').hover(function(){
+			$(this).fadeTo('fast',1);
+		},function(){
+			$(this).fadeTo('fast',0.7);
+	})
+})
+</script>
+</head>
+
+<body>
+
+
+ 	<div class="headtop"> 
+	   <div class="welcome">美食美客网欢迎您，让您学会自己烹饪美食……</div>
+	   <div id="nowtime" class="showtime"></div>
+    </div>
+    <div class="head">
+    	<div class="headleft">
+    	<img style="width:340px; height:90px;" src="images/logo.png" />
+    	</div>      
+        <div class="headright">
+        <form name="search">
+           <input type="text" name="search" value="" placeholder="更快速更准确的菜谱搜索"  style="height:30px; width:250px; margin-top:1px; float:left;"/>
+           <div class="search">
+             <a href=""><img  src="images/search.jpg"  /></a>
+           </div>
+        </form>
+        </div>
+    </div>
+   <div class="menu">
+    	<div class="menu-nav">
+        <div class="Nav">
+    	<ul>
+			<li><a href="index.html">首&nbsp;&nbsp;页</a></li>
+			<li><a href='#'>常见菜式
+  <table><tr><td>
+    <a href="liangcai_1.html">凉菜</a>
+    <a href="huncai_1.html">荤菜</a>
+    <a href="sucai_1.html">素菜</a>
+    <a href="changjianxiaochi_1.html">常见小吃</a>
+    <a href="tanggeng_1.html">汤羹</a>
+
+  </td></tr></table>
+</a></li>
+
+			<li><a href='#'>中西菜式
+  <table><tr><td>
+    <a href="chuancai_1.html">川菜</a>
+    <a href="mincai_1.html">闽菜</a>
+    <a href="xiangcai_1.html">湘菜</a>
+    <a href="riliao_1.html">日料</a>
+    <a href="fashi_1.html">法式</a>
+    </td></tr></table>
+</a></li>
+			<li><a href='#'>养生健康
+  <table><tr><td>
+    <a href="jianfei_1.html">减肥</a>
+    <a href="zibu_1.html">滋补</a>
+    <a href="yangyan_1.html">养颜</a>
+    <a href="jianpiyangwei_1.html">健脾养胃</a>
+    <a href="qiudongjinbu_1.html">秋冬进补</a>
+  </td></tr></table>
+</a></li>
+			<li><a href='#'>传统美食
+  <table><tr><td>
+    <a href="zongzi.html">粽子</a>
+    <a href="yuebing.html">月饼</a>
+    <a href="tangyuan.html">汤圆</a>
+    <a href="babaozhou.html">八宝粥</a>
+    <a href="shaomai.html">烧麦</a>
+  </td></tr></table>
+</a></li>
+  
+			<li><a href="video.html">美食视频</a></li>
+            
+            <li class="current"><a href='#'>更多分类
+  <table><tr><td>
+    <a href="hongpei_1.html">烘焙</a>
+    <a href="yuecai_1.html">粤菜</a>
+    <a href="hanshi_1.html">韩式</a>
+    <a href="taishi_1.html">泰式</a>
+    <a href="kaiweicai_1.html">开胃菜</a>
+    <a href="jijiemeishi_1.html">季节美食</a>
+
+  </td></tr></table>
+  </a></li>
+		</ul>
+    </div>
+    </div>
+    </div>
+      <div class="body_middle">
+        <div class="warp1"> 
+        	<div class="main1">
+            <p style="padding:5px 10px 5px; color:#930;"><b>今日推荐&nbsp;·&nbsp;视频</b></p>
+            <hr/>
+                 <div class="box">
+	<div class="picbox">
+		<ul class="piclist mainlist">
+			<li><a href="bpybsp.html" target="_blank" title="hahah" ><img  src="images/main4-2.jpg" width="220" height="200" /><p align="center">冰皮月饼</p></a></li>
+			<li><a href="mzcsrsp.html" target="_blank"  title="hahah"><img  src="images/819355_44e8cd.jpg" width="220" height="200"/><p align="center">蜜汁叉烧肉</p></a></li>
+			<li><a  href="mzjtpdzsp.html"target="_blank"><img src="images/pidanshourouzhou.jpg" width="220" height="200"/><p align="center">秘制鸡腿皮蛋粥</p></a></li>
+			<li><a href="fgtdhdssp.html" target="_blank"><img  src="images/819367_e36125.jpg" width="220" height="200"/><p align="center">法国甜点蝴蝶酥</p></a></li>
+			<li><a href="sxssp.html" target="_blank"><img src="images/819371_af0d47.jpg" width="220" height="200"/><p align="center">完美的寿喜烧</p></a></li>
+            <li><a href="tsxxcmfsp.html" target="_blank"><img src="images/m-l-down6.jpg"  width="220" height="200"/><p align="center">泰式鲜虾炒米粉</p></a></li>
+			<li><a href="cpltsp.html" target="_blank"><img  src="images/819357_bbb959.jpg"  width="220" height="200"/><p align="center">陈皮梨汤</p></a></li>
+			<li><a href="tstlyyqsp.html" target="_blank"><img src="images/m-l-down1.jpg"  width="220" height="200"/><p align="center">泰式甜辣鱿鱼圈 </p></a></li>
+		</ul>
+        <ul class="piclist swaplist"></ul>
+	</div>
+	<div class="og_prev"></div>
+	<div class="og_next"></div>
+</div>
+            <div class="main3-1">
+            	<div class="main3-left1">
+            		<div class="main3up"><p style="font-size:16px; color:#930; padding:5px 10px"><b>厨艺&nbsp;·&nbsp;视频</b><span style="float:right; font-size:14px;"><a href=""></a></span></p><hr />
+                    <div class="image"><a href="zjwdzcsp.html"><img src="images/zhajiweiduncai.png"; width="200px"; height="165px" /><p align="center">炸鸡炜炖菜</p></a></div>
+                    <div class="image"><a href="yspmskjsp.html"><img src="images/yishipamasenkaoji.png"  width="200px"; height="165px" /><p align="center">意式帕马森烤鸡</p></a></div>
+                    <div class="image"><a href="mzcsrsp.html"><img src="images/mizhichashaorou.jpg"  width="200px"; height="165px" /><p align="center">蜜汁叉烧肉</p></a></div>
+                 <!--   <div class="image"><a href="牛肉汁煎东星斑视频.html"> <img src="images/main4-4.jpg"  width="125px"; height="165px" /><p align="center">牛肉汁煎东星斑</p></a></div>
+                    <div class="image"><a href="西红柿土豆炖牛腩视频.html"><img src="images/main4-5.jpg"  width="125px"; height="165px" /><p align="center">西红柿炖牛腩</p></a></div>-->
+                    </div>
+            		<div class="main3down">
+                    <p style="font-size:16px; color:#930; padding:5px 10px"><b>养生&nbsp;·&nbsp;视频</b><span style="float:right;font-size:14px;"><a href=""></a></span></p><hr />
+                     <div class="image"><a href="nrzjdxbsp.html"> <img src="images/niurouzhijiandongxingban.png"  width="200px"; height="165px" /><p align="center">牛肉汁煎东星斑</p></a></div>
+                    <div class="image"><a href="xhstddnnsp.html"><img src="images/jxpg.png"  width="200px"; height="165px" /><p align="center">西红柿炖牛腩</p></a></div>
+                    <div class="image"><a href="tstlyyqsp.html"><img src="images/m-l-down1.jpg"  width="200px"; height="165px" /><p align="center">泰式甜辣鱿鱼圈</p></a></div>
+                   <!-- /*<div class="image"> <img src="images/main4-1.jpg"  width="125px"; height="165px" /></div>
+                    <div class="image"><img src="images/main4-4.jpg"  width="125px"; height="165px" /></div>*/-->
+                    </div>
+         	   </div>
+               
+               <div class="main3-right1">
+               <p style="font-size:16px; color:#930; margin: 5px "><b>热门搜索&nbsp;·&nbsp;视频</b></p>
+               <hr />
+               <a href="srnyydlmsp.html"><img src="images/suanrongnaiyouyidalimian.jpg" style=" width:120px; height:150px;margin:30px 8px 0px; float:left"/></a>
+               <div style="float:left; display:block; height:200px; width:155px; line-height:17px;">
+               <h3 style="margin-top:30px; margin-bottom:10px;"><a href="srnyydlmsp.html">蒜茸奶油意大利面</a></h3>
+             随着气温的降低，人的食欲好像也越来越好了。俗话说“吃饱好过冬”，但事实上，仅仅吃饱还远远不够，冬季的饮食，更讲究吃得合理、吃得健康。
+               </div>
+               
+               <a href="rgmsp.html"><img src="images/wuhanreganmian.jpg" style=" width:120px; height:150px;margin:50px 8px 10px; float:left"/></a>
+               <div style="float:left; display:block; width:155px;line-height:17px; height:210px;">
+               <h3 style="margin-top:50px; margin-bottom:10px;"><a href="rgmsp.html">武汉特色热干面</a></h3>
+               武汉热干面，与山西刀削面、两广伊府面、四川担担面、北方炸酱面并称为中国五大名面，是颇具武汉特色的过早小吃，它是武汉人生活中不可分割的一部分。
+               </div>
+               </div>
+               
+               
+            </div>
+          
+           
+    <div class="body_foot">
+    	<div class="link">  &nbsp;&nbsp;<span class="body_foot_link"><b>友情链接</b></span><br /> 
+        	<div>
+            <A href="http://food.poco.cn/">poco美食网</A>&nbsp;&nbsp;
+            <A href="http://www.tangjiu.com/">食品招商</A>&nbsp; &nbsp;  
+            <A href="http://www.szeat.net/">深圳饮食网</A>&nbsp; &nbsp;  
+            <A href="http://suzhou.8684.cn/">苏州公交网</A>&nbsp; &nbsp;  
+            <A href="http://www.tech-food.com/">食品科技网</A>&nbsp; &nbsp;  
+            <A href="http://www.zhms.cn/">中华美食</A>&nbsp; &nbsp;  
+            <A href="http://www.9998.tv/">酒招商</A>&nbsp; &nbsp;  
+            <A href="http://www.spzs.com/">食品招商网</A>&nbsp; &nbsp;  
+            <A href="http://www.spjxcn.com/">中国食品设备网</A>&nbsp; &nbsp;            <A href="http://food.39.net/">39健康饮食</A>&nbsp; &nbsp; 
+            <br />
+
+ 
+            <A href="http://www.tfysw.com/">美食城</A> &nbsp; &nbsp;
+            <A href="http://www.fancai.com/">饭菜网</A>&nbsp; &nbsp;
+            <A href="http://health.lady8844.com/">爱美网养生</A>&nbsp; &nbsp;  
+            <A href="http://www.aibang.com/">爱帮美食网</A>&nbsp; &nbsp;  
+            <A href="http://91chihe.shangdu.com/">美食网</A>&nbsp; &nbsp;  
+            <A href="http://www.doodii.com/">外卖网</A>&nbsp;&nbsp;  
+            <A href="http://info.china.alibaba.com/news/community/c5.htm">阿里巴巴食品</A>&nbsp; &nbsp;  
+            <A href="http://sj.2144.cn/">手机游戏</A>&nbsp; &nbsp;  
+            <A href="http://ys.99.com.cn/">食谱大全</A>&nbsp; &nbsp;  
+            <A href="http://www.tripc.net/">启程旅游网</A>&nbsp; &nbsp; 
+            <A href="http://www.jiameng.com/">加盟</A>&nbsp; &nbsp; 
+          
+            <br />
+            <A href="http://www.loach.net.cn/">中国食谱网</A>&nbsp; &nbsp; &nbsp;  
+  			<A href="http://www.fumuhui.com/">父母会育儿网</A>&nbsp; &nbsp;
+            <A href="http://www.bianzhirensheng.com/">编织人生</A>&nbsp; &nbsp;  
+            <A href="http://www.hao123.com/">hao123</A>&nbsp; &nbsp;  
+            <A href="http://ys.99.com.cn/">饮食健康</A>&nbsp; &nbsp;  
+            <A href="http://www.52pets.com/">爱宠乐园</A>&nbsp; &nbsp;  
+            <A href="http://www.haochu.com/">好厨网</A>
+            </div>
+        </div>
+        <div class="footer"> 
+<br />
+            Copyright&copy;2014meishimeike.com &nbsp; &nbsp;All Right Reserved
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
